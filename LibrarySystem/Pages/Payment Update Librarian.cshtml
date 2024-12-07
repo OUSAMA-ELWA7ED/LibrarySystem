@@ -1,0 +1,49 @@
+﻿@page
+@model Library_Project.Pages.Index1Model
+@{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h1>Manage User Fines</h1>
+                <p class="text-muted">Update the status of pending fines after payment</p>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var fine in Model.Fines)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="/images/placeholder.png" class="img-fluid rounded" alt="User or Book Image" />
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="card-title">@fine.UserName</h5>
+                                    <p class="card-text">
+                                        <strong>Book Name:</strong> @fine.BookName <br />
+                                        <strong>Description:</strong> @fine.Description <br />
+                                        <strong>Transaction Status:</strong>
+                                        <span class="badge @((fine.Status == "Pending") ? "bg-warning" : "bg-success")">
+                                            @fine.Status
+                                        </span> <br />
+                                        <strong>Fine Amount:</strong> $@fine.Amount <br />
+                                        <strong>Date:</strong> @fine.Date.ToString("MM/dd/yyyy")
+                                    </p>
+                                    @if (fine.Status == "Pending")
+                                    {
+                                        <form method="post">
+                                            <input type="hidden" name="FineId" value="@fine.Id" />
+                                            <button type="submit" class="btn btn-primary">Mark as Paid</button>
+                                        </form>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
