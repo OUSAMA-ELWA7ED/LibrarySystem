@@ -22,35 +22,20 @@ namespace LibrarySystem.Pages
         public IActionResult OnPostAddBook(string Title, string Author, string Genre, bool IsAvailable)
         {
             
-            Books.Add(new Book
-            {
-                Id = Books.Count + 1,
-                Title = Title,
-                Author = Author,
-                Genre = Genre,
-                IsAvailable = IsAvailable
-            });
+          
             return RedirectToPage();
         }
 
         public IActionResult OnPostUpdateBook(int BookId, string UpdatedTitle, string UpdatedAuthor, string UpdatedGenre, bool IsAvailable)
         {
             
-            var book = Books.Find(b => b.Id == BookId);
-            if (book != null)
-            {
-                book.Title = UpdatedTitle;
-                book.Author = UpdatedAuthor;
-                book.Genre = UpdatedGenre;
-                book.IsAvailable = IsAvailable;
-            }
+            
             return RedirectToPage();
         }
 
         public IActionResult OnPostDeleteBook(int BookId)
         {
             
-            Books.RemoveAll(b => b.Id == BookId);
             return RedirectToPage();
         }
     }
