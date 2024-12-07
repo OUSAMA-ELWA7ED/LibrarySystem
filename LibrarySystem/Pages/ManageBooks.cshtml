@@ -1,0 +1,77 @@
+﻿@page
+@model LibrarySystem.Pages.ManageBooksModel
+@{
+    ViewData["Title"] = "Manage Books";
+}
+
+<div class="container mt-4">
+    <h1>Manage Books</h1>
+
+    <div class="card mb-4">
+        <div class="card-header">Add New Book</div>
+        <div class="card-body">
+            <form method="post" asp-page-handler="AddBook">
+                <div class="mb-3">
+                    <label for="Title" class="form-label">Title</label>
+                    <input type="text" name="Title" id="Title" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Author" class="form-label">Author</label>
+                    <input type="text" name="Author" id="Author" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Genre" class="form-label">Genre</label>
+                    <input type="text" name="Genre" id="Genre" class="form-control" required />
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" name="IsAvailable" id="IsAvailable" class="form-check-input" />
+                    <label for="IsAvailable" class="form-check-label">Available</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="card mb-4">
+        <div class="card-header">Books List</div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Availability</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model.Books)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>@book.Author</td>
+                            <td>@book.Genre</td>
+                            <td>@(book.IsAvailable ? "Available" : "Unavailable")</td>
+                            <td>
+                                
+                                <form method="post" asp-page-handler="UpdateBook" class="d-inline">
+                                    <input type="hidden" name="BookId" value="@book.Id" />
+                                    <button type="submit" class="btn btn-warning btn-sm">Edit</button>
+                                </form>
+                                
+                                <form method="post" asp-page-handler="DeleteBook" class="d-inline">
+                                    <input type="hidden" name="BookId" value="@book.Id" />
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a href="/Books" class="btn btn-link">View All Books</a>
+</div>
