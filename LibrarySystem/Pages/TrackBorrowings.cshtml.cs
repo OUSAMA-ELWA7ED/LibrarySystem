@@ -7,20 +7,20 @@ namespace LibrarySystem.Pages
     {
         public List<BorrowingRecord> BorrowingRecords { get; set; } = new List<BorrowingRecord>
         {
-            new BorrowingRecord { RecordId = 1, BookTitle = "Book 1", MemberName = "John Doe", Action = "Borrow", Date = DateTime.Now.AddDays(-3) },
-            new BorrowingRecord { RecordId = 2, BookTitle = "Book 2", MemberName = "Jane Smith", Action = "Return", Date = DateTime.Now.AddDays(-1) }
+            new BorrowingRecord { RecordId = 1, BookTitle = "Book_1", MemberName = "Mo Ali", Action = "Borrow", Date = DateTime.Now },
+            new BorrowingRecord { RecordId = 2, BookTitle = "Book_2", MemberName = "Moustafa Mohamed", Action = "Return", Date = DateTime.Now }
         };
 
         public List<BookStatistic> MostBorrowedBooks { get; set; } = new List<BookStatistic>
         {
-            new BookStatistic { Title = "Book 1", TimesBorrowed = 15 },
-            new BookStatistic { Title = "Book 3", TimesBorrowed = 12 }
+            new BookStatistic { Title = "Book_1", TimesBorrowed = 15 },
+            new BookStatistic { Title = "Book_3", TimesBorrowed = 12 }
         };
 
         public List<BookStatistic> LeastBorrowedBooks { get; set; } = new List<BookStatistic>
         {
-            new BookStatistic { Title = "Book 5", TimesBorrowed = 2 },
-            new BookStatistic { Title = "Book 6", TimesBorrowed = 1 }
+            new BookStatistic { Title = "Book_5", TimesBorrowed = 2 },
+            new BookStatistic { Title = "Book_6", TimesBorrowed = 1 }
         };
 
         public IActionResult OnPostRecordBorrowing(int BookId, int MemberId, string ActionType)
