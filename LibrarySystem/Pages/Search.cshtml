@@ -15,56 +15,42 @@
 <body class="bg-light">
     <div class="container mt-5">
         <h1 class="text-center mb-4">Search Library</h1>
-
-
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
                 <h2 class="h5 mb-0">Search Books</h2>
             </div>
             <div class="card-body">
                 <form method="get">
-                    <div class="row g-3">
-                        <div class="col-md-3">
-                            <input type="text" name="Title" class="form-control" placeholder="Title" />
+                 <div class="row g-3">
+                      <div class="col-md-3">
+                         <input type="text" name="Title" class="form-control" placeholder="Title" />
                         </div>
                         <div class="col-md-3">
-                            <input type="text" name="Author" class="form-control" placeholder="Author" />
+                         <input type="text" name="Author" class="form-control" placeholder="Author" />
                         </div>
                         <div class="col-md-3">
-                            <input type="text" name="Genre" class="form-control" placeholder="Genre" />
+                         <input type="text" name="Genre" class="form-control" placeholder="Genre" />
                         </div>
                         <div class="col-md-3">
-                            <input type="number" name="Year" class="form-control" placeholder="Publication Year" />
+                         <input type="number" name="Year" class="form-control" placeholder="Publication Year" />
                         </div>
                     </div>
-                    <button type="submit" formaction="/SearchBooks" class="btn btn-success mt-3">Search</button>
+                 <button type="submit" formaction="/SearchBooks" class="btn btn-success mt-3">Search</button>
                 </form>
 
                 <h5 class="mt-4">Search Results</h5>
                 <table class="table table-striped mt-2">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Genre</th>
-                            <th>Publication Year</th>
-                            <th>Availability</th>
-                        </tr>
+                  <thead class="table-dark">
+                     <tr> <th>ID</th> <th>Title</th> <th>Author</th> <th>Genre</th> <th>Publication Year</th> <th>Availability</th> </tr>
                     </thead>
                     <tbody>
                         @foreach (var book in Model.BookSearchResults)
                         {
                             <tr>
-                                <td>@book.Id</td>
-                                <td>@book.Title</td>
-                                <td>@book.Author</td>
-                                <td>@book.Genre</td>
-                                <td>@book.Year</td>
-                                <td>@(book.IsAvailable ? "Available" : "Unavailable")</td>
+                                <td>@book.Id</td> <td>@book.Title</td> <td>@book.Author</td> <td>@book.Genre</td> <td>@book.Year</td> <td>@(book.IsAvailable ? "Available" : "Unavailable")</td>
                             </tr>
                         }
-                    </tbody>
+                 </tbody>
                 </table>
             </div>
         </div>
@@ -89,22 +75,12 @@
                 <h5 class="mt-4">Search Results</h5>
                 <table class="table table-striped mt-2">
                     <thead class="table-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                        </tr>
+                        <tr> <th>ID</th> <th>Name</th> <th>Email</th> <th>Phone</th> </tr>
                     </thead>
                     <tbody>
                         @foreach (var user in Model.UserSearchResults)
                         {
-                            <tr>
-                                <td>@user.Id</td>
-                                <td>@user.Name</td
-                                <td>@user.Email</td>
-                                <td>@user.Phone</td>
-                            </tr>
+                            <tr> <td>@user.Id</td> <td>@user.Name</td <td>@user.Email</td> <td>@user.Phone</td> </tr>
                         }
                     </tbody>
                 </table>
