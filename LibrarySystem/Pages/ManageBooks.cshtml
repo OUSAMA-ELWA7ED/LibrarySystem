@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model LibrarySystem.Pages.ManageBooksModel
 @{
     ViewData["Title"] = "Manage Books";
@@ -34,18 +34,12 @@
 
 
     <div class="card mb-4">
-        <div class="card-header">Books List</div>
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Genre</th>
-                        <th>Availability</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
+      <div class="card-header">Books List</div>
+       <div class="card-body">
+         <table class="table">
+           <thead>
+             <tr> <th>Title</th>   <th>Author</th>    <th>Genre</th>  <th>Availability</th>   <th>Actions</th> </tr>
+           </thead>
                 <tbody>
                     @foreach (var book in Model.Books)
                     {
@@ -72,6 +66,5 @@
             </table>
         </div>
     </div>
-
     <a href="/Books" class="btn btn-link">View All Books</a>
 </div>
