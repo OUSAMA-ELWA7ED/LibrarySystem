@@ -9,7 +9,7 @@ namespace Library_Project.Pages
 
         public void OnGet(int userId)
         {
-            // get the user data from the database
+          
             // for now examples is used
             User = new User
             {
@@ -23,7 +23,7 @@ namespace Library_Project.Pages
 
         public IActionResult OnPost(int userId, string userName, string email, string id, string role)
         {
-            // in this on post it will Update the user data in the database
+            // in this on post it will update the user data in the database
     
             return RedirectToPage("Search");
         }
