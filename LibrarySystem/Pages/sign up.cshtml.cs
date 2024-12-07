@@ -25,7 +25,7 @@ namespace Library_Project.Pages
                 return Page();
             }
 
-            // Save the form data to a database or perform other operations
+            
             return RedirectToPage("Index"); 
         }
     }
