@@ -19,7 +19,7 @@ namespace Library_Project.Pages
         }
 
 
-        public IActionResult OnPost(int FineId)
+        public IActionResult OnPost(int fineId)
         {
            
             
