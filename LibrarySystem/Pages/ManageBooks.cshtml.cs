@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
+using LibrarySystem.Models;
 
 namespace LibrarySystem.Pages
 {
@@ -8,8 +9,9 @@ namespace LibrarySystem.Pages
     {
         public List<Book> Books { get; set; } = new List<Book>
         {
-            new Book { Id = 1, Title = "Sample Book 1", Author = "Author 1", Genre = "Fiction", IsAvailable = true },
-            new Book { Id = 2, Title = "Sample Book 2", Author = "Author 2", Genre = "Drama", IsAvailable = false }
+            new Book { Id = 1, Title = "Book_1", Author = "Author_1", Genre = "Fiction", IsAvailable = true },
+            new Book { Id = 2, Title = "Book_2", Author = "Author_2", Genre = "Drama", IsAvailable = false },
+            new Book { Id = 3, Title = "Book_3", Author = "Author_3", Genre = "Action", IsAvailable = true }
         };
 
         public void OnGet()
@@ -52,14 +54,5 @@ namespace LibrarySystem.Pages
             return RedirectToPage();
         }
     }
-
-    public class Book
-    {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string Genre { get; set; }
-        public string ImageUrl { get; set; }
-        public bool IsAvailable { get; set; }
-    }
+  
 }
