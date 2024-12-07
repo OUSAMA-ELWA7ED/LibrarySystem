@@ -9,7 +9,7 @@ namespace Library_Project.Pages
 
         public void OnGet()
         {
-            // Sample data for display
+           
             Fines = new List<Fine>
             {
                 new Fine { Id = 1, UserName = "John Doe", BookName = "C# Programming", Description = "Overdue", Amount = 10.00, Status = "Pending", Date = System.DateTime.Now.AddDays(-5) },
@@ -21,15 +21,11 @@ namespace Library_Project.Pages
 
         public IActionResult OnPost(int FineId)
         {
-            // Here, you would typically update the database to mark the fine as paid
-            var fine = Fines.FirstOrDefault(f => f.Id == FineId);
-            if (fine != null)
-            {
-                fine.Status = "Paid"; // Update the status
-                // Update the database logic goes here
-            }
+           
+            
 
-            return RedirectToPage(); // Refresh the page
+
+            return RedirectToPage("Payment Update Librarian"); // 
         }
     }
     public class Fine
