@@ -25,11 +25,12 @@ namespace Library_Project.Pages
                 }
 
                 // For example: validate credentials against a database
-                bool isValidUser = (Email == "test@example.com" && Password == "password"); // Replace with real validation
-
-                if (isValidUser)
+                //here we are going to check data from the data base with an if condition if its andmin it'll redirect to an admin page etc
+                //for now its just true
+                checkValidUser=true
+                if (checkValidUser)
                 {
-                    return RedirectToPage("Dashboard"); // Redirect to a dashboard or home page
+                    return RedirectToPage("Index"); // Redirect to a dashboard or home page
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid email or password");
