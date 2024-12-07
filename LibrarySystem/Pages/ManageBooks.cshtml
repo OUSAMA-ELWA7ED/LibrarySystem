@@ -43,18 +43,12 @@
                 <tbody>
                     @foreach (var book in Model.Books)
                     {
-                        <tr>
-                            <td>@book.Title</td>
-                            <td>@book.Author</td>
-                            <td>@book.Genre</td>
-                            <td>@(book.IsAvailable ? "Available" : "Unavailable")</td>
+                        <tr> <td>@book.Title</td> <td>@book.Author</td> <td>@book.Genre</td> <td>@(book.IsAvailable ? "Available" : "Unavailable")</td>
                             <td>
-                                
                                 <form method="post" asp-page-handler="UpdateBook" class="d-inline">
                                     <input type="hidden" name="BookId" value="@book.Id" />
                                     <button type="submit" class="btn btn-warning btn-sm">Edit</button>
                                 </form>
-                                
                                 <form method="post" asp-page-handler="DeleteBook" class="d-inline">
                                     <input type="hidden" name="BookId" value="@book.Id" />
                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
