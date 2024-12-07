@@ -24,13 +24,13 @@ namespace Library_Project.Pages
                     return Page();
                 }
 
-                // For example: validate credentials against a database
+               
                 //here we are going to check data from the data base with an if condition if its andmin it'll redirect to an admin page etc
                 //for now its just true
                 checkValidUser=true
                 if (checkValidUser)
                 {
-                    return RedirectToPage("Index"); // Redirect to a dashboard or home page
+                    return RedirectToPage("Index"); 
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid email or password");
