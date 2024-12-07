@@ -1,0 +1,157 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Library Application - Student Interface";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Application - Student Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h2 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        div {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px; /* Reduced padding for smaller buttons */
+            font-size: 14px; /* Smaller font size */
+            border-radius: 3px; /* Slightly rounded corners */
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            ul li {
+                margin: 10px 0;
+            }
+
+                ul li button {
+                    float: right;
+                }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Library Application</h1>
+    </header>
+
+    <main>
+        <!-- Search Section -->
+        <div class="search-section">
+            <h2>Search for Books</h2>
+            <input type="text" placeholder="Search by title, author, genre, or keywords" id="search-input">
+            <button id="search-button">Search</button>
+            <div id="search-results">
+                <!-- Search results will appear here -->
+            </div>
+        </div>
+
+        <!-- Borrow Section -->
+        <div class="borrow-section">
+            <h2>Borrow Books</h2>
+            <ul id="book-list">
+                <li>Book Title 1 - <button>Borrow</button></li>
+                <li>Book Title 2 - <button>Borrow</button></li>
+            </ul>
+        </div>
+
+        <!-- Check Borrowing History and Current Borrowed Books Section -->
+        <div class="borrow-check-section">
+            <h2>Check Borrowing History and Current Borrowed Books</h2>
+
+            <!-- Borrowing History -->
+            <h3>Borrowing History</h3>
+            <ul id="borrowing-history">
+                <li>Book Title 1 - Borrowed: 01/12/2024 - Returned: 10/12/2024</li>
+            </ul>
+
+            <!-- Current Borrowed Books -->
+            <h3>Current Borrowed Books</h3>
+            <ul id="current-borrowed-books">
+                <li>
+                    Book Title 3 - Due: 20/12/2024
+                    <button onclick="renewBook('Book Title 3')">Renew</button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Renew Section -->
+        <div class="renew-section">
+            <h2>Renew Books</h2>
+            <ul id="borrowed-books">
+                <li>Book Title 1 - Due: 12/12/2024 <button>Renew</button></li>
+            </ul>
+        </div>
+
+        <!-- Account Information Section -->
+        <div class="account-info-section">
+            <h2>Account Information</h2>
+            <h3>Borrowing History</h3>
+            <ul id="history-list">
+                <li>Book Title 1 - Borrowed: 01/12/2024 - Returned: 10/12/2024</li>
+            </ul>
+            <h3>Current Borrowed Books</h3>
+            <ul id="current-books">
+                <li>Book Title 2 - Due: 15/12/2024</li>
+            </ul>
+            <h3>Fines</h3>
+            <p>Total Fines: $5.00</p>
+        </div>
+
+        <!-- Reserve Section -->
+        <div class="reserve-section">
+            <h2>Reserve Books</h2>
+            <ul id="unavailable-books">
+                <li>Book Title 3 - <button>Reserve</button></li>
+            </ul>
+        </div>
+
+        <!-- Notifications Section -->
+        <div class="notification-section">
+            <h2>Notifications</h2>
+            <ul id="notifications">
+                <li>Reminder: "Book Title 2" is due on 15/12/2024.</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>
