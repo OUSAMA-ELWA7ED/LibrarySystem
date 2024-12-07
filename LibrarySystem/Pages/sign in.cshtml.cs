@@ -27,7 +27,7 @@ namespace Library_Project.Pages
                
                 //here we are going to check data from the data base with an if condition if its andmin it'll redirect to an admin page etc
                 //for now its just true
-                checkValidUser=true
+                bool checkValidUser=true;
                 if (checkValidUser)
                 {
                     return RedirectToPage("Index"); 
