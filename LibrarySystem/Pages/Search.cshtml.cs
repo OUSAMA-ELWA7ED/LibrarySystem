@@ -17,8 +17,8 @@ namespace LibrarySystem.Pages
 
         public List<LibrarySystem.Models.User> Users { get; set; } = new List<LibrarySystem.Models.User>
         {
-            new LibrarySystem.Models.User { Id = 1, Name = "John Doe", Email = "john@example.com", Phone = "1234567890" },
-            new LibrarySystem.Models.User { Id = 2, Name = "Jane Smith", Email = "jane@example.com", Phone = "0987654321" }
+            new LibrarySystem.Models.User { Id = 1, Name = "Mo Ali", Email = "mo@example.com", Phone = "1234567890" },
+            new LibrarySystem.Models.User { Id = 2, Name = "Ali Mo", Email = "Ali@example.com", Phone = "0987654321" }
         };
 
         
