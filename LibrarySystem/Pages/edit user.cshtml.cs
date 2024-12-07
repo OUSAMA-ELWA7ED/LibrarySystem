@@ -9,23 +9,23 @@ namespace Library_Project.Pages
 
         public void OnGet(int userId)
         {
-            // Fetch the user data from the database based on userId
-            // For now, sample data is used
+            // get the user data from the database
+            // for now examples is used
             User = new User
             {
                 Id = userId,
-                UserName = "Sample User",
-                Email = "sample.user@example.com",
-                ID = "12345",
-                Role = "User"
+                UserName = " user",
+                Email = "me.user@example.com",
+                ID = "12345999",
+                Role = "user"
             };
         }
 
         public IActionResult OnPost(int userId, string userName, string email, string id, string role)
         {
-            // Update the user data in the database
-            // For demonstration, assume the user data is updated successfully
-            return RedirectToPage("AllUsers");
+            // in this on post it will Update the user data in the database
+    
+            return RedirectToPage("Search");
         }
 
         
