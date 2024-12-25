@@ -1,16 +1,16 @@
-@page
+﻿@page
 @model LibrarySystem.Pages.AllBooksModel
 @{
     ViewData["Title"] = "All Books";
 }
-@using System.Linq
 
-<h1>Book Categories</h1>
 
+<html lang="ar" dir="rtl">
+<h1>أقسام الكتب</h1> 
 <div class="m-b-30">
     <div class="form-group search_form_group">
         <form action="" method="GET">
-            <input style="height: 55px;" placeholder="Search for category" type="text" class="form-control input-lg " name="search" required="" autocomplete="off" value="">
+            <input style="height: 55px;" placeholder="ابحث عن كتاب او مؤلف او قسم كتب" type="text" class="form-control input-lg " name="search" required="" autocomplete="off" value="">
             <div class="btn-div">
                 <button class="btn btn-md btn-default"> <i class="fa fa-search"> </i> </button>
             </div>
@@ -18,4 +18,29 @@
     </div>
 </div>
 
+<div class=" card m-3">
+    <div class=" card-header"> قسم المحاسبة</div>
+    <div class="card-body">
+    <table class=" table table-responsive">
+            <tr><th>الكتاب</th><th>الكاتب</th><th>النسخ المتاحة</th></tr>
+        <tbody>
+                @for (int i = 0; i < @Model.bookData.Rows.Count; i++)
+                {
+                <tr>
+                        @for (int j = 0; j < @Model.bookData.Columns.Count; j++)
+                        {
+                            <td> @Model.bookData.Rows[i][j]</td> 
+                        }
+                        <form method="post" asp-page-handler="Edit" asp-route-name="@Model.bookData.Rows[i]["name"]">
+                        <td> <input type="submit" value="Edit" name="Edit" class=" btn btn-warning" /> </td>
+                        </form>
+                        <form method="post" asp-page-handler="Delete">
+                        <td> <input type="submit" value="Delete" name="Delete" class=" btn btn-danger" /></td>
+                        </form>
+                </tr>
+            }
+        </tbody>
+    </div>
+</div>
 
+</html>

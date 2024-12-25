@@ -4,7 +4,7 @@
     ViewData["Title"] = "Library Home";
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,39 +14,41 @@
 <body>
     <header class="p-3 bg-light border-bottom">
         <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="fs-3 fw-bold">Library Name</h1>
+            <div class="d-flex align-items-center">
+                <img src="~/images/logo.jpg" alt="Library Logo" class="me-2" style="height: 50px;" /> 
+                <h1 class="fs-3 fw-bold mb-0">مكتبة المعهد العالى للادارة والمحاسبة بسوهاج</h1>
+            </div>
             <div>
-                <a href="/sign in" class="btn btn-outline-primary me-2">Sign In</a>
-                <a href="/sign up" class="btn btn-primary">Sign Up</a>
+                <a href="/sign in" class="btn btn-outline-primary me-2">دخول</a>
+                <a href="/sign up" class="btn btn-primary">إنشاء حساب</a>
             </div>
         </div>
     </header>
-
     <main class="container mt-4">
        
         <section class="text-center mb-5">
-            <h2 class="fw-bold">Our Mission</h2>
+            <h2 class="fw-bold">رؤيتنا</h2>
             <p class="text-muted">To provide access to a wide range of resources and promote lifelong learning.</p>
-            <h2 class="fw-bold mt-4">Our Vision</h2>
+            <h2 class="fw-bold mt-4">رسالتنا</h2>
             <p class="text-muted">To be a hub of knowledge and innovation for our community.</p>
         </section>
 
         <section>
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="fw-bold">Featured Books</h3>
-                <a href="/Books" class="btn btn-link text-decoration-none">View All Books <i class="bi bi-arrow-right"></i></a>
+                <h3 class="fw-bold">الكتب الأكثر استعارة</h3>
+                <a href="/Books" class="btn btn-link text-decoration-none">رؤية كل الكتب <i class="bi bi-arrow-right"></i></a>
             </div>
             <div class="row">
                 @foreach (var book in Model.FeaturedBooks)
                 {
                     <div class="col-md-4 mb-4">
                         <div class="card h-100">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Book cover for @book.Title" />
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Book cover for @book.Name" />
                             <div class="card-body">
-                                <h5 class="card-title">@book.Title</h5>
+                                <h5 class="card-title">@book.Name</h5>
                                 <p class="card-text">
-                                    <strong>Author:</strong> @book.Author <br />
-                                    <strong>Genre:</strong> @book.Genre
+                                    <strong>Author:</strong> @book.Name <br />
+                                    
                                 </p>
                                 <a href="/BookDetails?id=@book.Id" class="btn btn-outline-primary btn-sm">Read More</a>
                             </div>
@@ -57,11 +59,5 @@
         </section>
     </main>
 
-    <footer class="bg-light py-4 border-top">
-        <div class="container text-center">
-            <p class="mb-0">&copy; 2024 Library Name. All rights reserved.</p>
-            <small>Privacy Policy | Terms of Service</small>
-        </div>
-    </footer>
 </body>
 </html>

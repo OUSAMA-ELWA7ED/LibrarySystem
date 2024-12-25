@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Library_Project.Pages
+namespace LibrarySystem.Pages
 {
     public class edit_userModel : PageModel
     {

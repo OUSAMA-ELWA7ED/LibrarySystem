@@ -12,25 +12,46 @@
         <div class="card-body">
             <form method="post" asp-page-handler="AddBook">
                 <div class="mb-3">
+                    <label for="BookID" class="form-label">Book ID</label>
+                    <input type="text" class="form-control" asp-for="@Model.bookData.Id" />
+                    <span class="text-danger" asp-validation-for="@Model.bookData.Id"></span>
+                </div>
+                <div class="mb-3">
                     <label for="Title" class="form-label">Title</label>
-                    <input type="text" name="Title" id="Title" class="form-control" required />
+                    <input type="text" class="form-control" asp-for="@Model.bookData.Name" />
+                    <span class="text-danger" asp-validation-for="@Model.bookData.Name"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="Author" class="form-label">Author</label>
-                    <input type="text" name="Author" id="Author" class="form-control" required />
+                    <label for="AuthorID" class="form-label">Author ID</label>
+                    <input type="text" class="form-control" asp-for="@Model.bookData.AuthorId" />
+                    <span class="text-danger" asp-validation-for="@Model.bookData.AuthorId"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="Genre" class="form-label">Genre</label>
-                    <input type="text" name="Genre" id="Genre" class="form-control" required />
+                    <label for="Author" class="form-label">Author Name</label>
+                    <input type="text" class="form-control" asp-for="@Model.bookData.Publisher" />
+                    <span class="text-danger" asp-validation-for="@Model.bookData.Publisher"></span>
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" name="IsAvailable" id="IsAvailable" class="form-check-input" />
-                    <label for="IsAvailable" class="form-check-label">Available</label>
+                <div class="mb-3">
+                    <label for="AvailableCopies" class="form-label">Available Copies</label>
+                    <input type="number" class="form-control" asp-for="@Model.bookData.AvailableCopies" />
+                    <span class="text-danger" asp-validation-for="@Model.bookData.AvailableCopies"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="LocationID" class="form-label">Location ID</label>
+                    <input type="text" class="form-control" asp-for="@Model.bookData.LocationId" />
+                    <span class="text-danger" asp-validation-for="@Model.bookData.LocationId"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="CategoryID" class="form-label">Category ID</label>
+                    <input type="text" class="form-control" asp-for="@Model.bookData.CategoryId" />
+                    <span class="text-danger" asp-validation-for="@Model.bookData.CategoryId"></span>
                 </div>
                 <button type="submit" class="btn btn-primary">Add Book</button>
             </form>
         </div>
     </div>
+
+
 
 
     <div class="card mb-4">
@@ -40,22 +61,9 @@
            <thead>
              <tr> <th>Title</th>   <th>Author</th>    <th>Genre</th>  <th>Availability</th>   <th>Actions</th> </tr>
            </thead>
+
                 <tbody>
-                    @foreach (var book in Model.Books)
-                    {
-                        <tr> <td>@book.Title</td> <td>@book.Author</td> <td>@book.Genre</td> <td>@(book.IsAvailable ? "Available" : "Unavailable")</td>
-                            <td>
-                                <form method="post" asp-page-handler="UpdateBook" class="d-inline">
-                                    <input type="hidden" name="BookId" value="@book.Id" />
-                                    <button type="submit" class="btn btn-warning btn-sm">Edit</button>
-                                </form>
-                                <form method="post" asp-page-handler="DeleteBook" class="d-inline">
-                                    <input type="hidden" name="BookId" value="@book.Id" />
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    }
+                    
                 </tbody>
             </table>
         </div>

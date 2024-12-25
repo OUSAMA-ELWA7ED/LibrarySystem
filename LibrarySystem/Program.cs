@@ -1,7 +1,9 @@
+using LibrarySystem.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<Library_System>();
 
 var app = builder.Build();
 

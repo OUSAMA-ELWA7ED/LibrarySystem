@@ -1,0 +1,27 @@
+﻿@page
+@model LibrarySystem.Pages.EditBookInfoModel
+@{
+}
+
+<center><h1>Edit Book Information</h1></center>
+
+<form method="post" class="row justify-content-center">
+    <center><p>BOOK TITLE: @Model.BookName</p></center>
+	<div class="col-md-6">
+        <div class="mb-3">
+          <label for="Name" class="form-label"> Book Name</label>
+            <input type="text" id="Name" name="Name" placeholder="Book Name" class="form-control" asp-for="@Model.EditBook.Name" />
+            <span asp-validation-for="@Model.BookName" class=" text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Publisher" class="form-label"> Author </label>
+            <input type="text" id="Publisher" name="Publisher" placeholder="Author" class="form-control" asp-for="@Model.EditBook.Publisher" />
+        </div>
+        <div class="mb-3">
+            <label for="AvailableCopies" class="form-label"> Available Copies</label>
+            <input type="number" id="AvailableCopies" name="AvailableCopies" placeholder="Availble Copies" class="form-control" asp-for="@Model.EditBook.AvailableCopies" />
+        </div>
+
+        <button type="submit" class=" btn btn-success">Save Changes</button>  <button type="submit" class=" btn btn-outline-secondary ">Close</button>
+    </div>
+</form>
